@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community HealthCare - Enhancing Quality of Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --secondary: #0288D1;
+            --danger: #C62828;
+            --warning: #F57C00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --women-health: #AD1457;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+        
+        .user-profile {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.8rem 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.7rem;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        .nav-item.active {
+            color: var(--primary);
+        }
+        
+        .nav-item i {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+        
+        main {
+            padding: 1rem;
+            padding-bottom: 70px;
+        }
+        
+        .health-status {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .status-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-good {
+            background: var(--primary);
+        }
+        
+        .status-average {
+            background: var(--warning);
+        }
+        
+        .status-poor {
+            background: var(--danger);
+        }
+        
+        .health-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+        
+        .metric {
+            background: var(--light);
+            padding: 0.7rem 0.5rem;
+            border-radius: 8px;
+        }
+        
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-title a {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .health-tip {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .tip-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .tip-title {
+            font-weight: 500;
+        }
+        
+        .tip-content {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .action-btn {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: var(--dark);
+        }
+        
+        .action-btn i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .action-btn.primary i {
+            color: var(--primary);
+        }
+        
+        .action-btn.secondary i {
+            color: var(--secondary);
+        }
+        
+        .action-btn.danger i {
+            color: var(--danger);
+        }
+        
+        .action-btn.women-health i {
+            color: var(--women-health);
+        }
+        
+        .action-label {
+            font-size: 0.8rem;
+        }
+        
+        .emergency-contacts {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+        
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .contact-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .notification-bell {
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .record-form {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn i {
+            margin-right: 5px;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+        }
+        
+        .btn-warning {
+            background: var(--warning);
+        }
+        
+        .btn-women-health {
+            background: var(--women-health);
+        }
+        
+        .records-list {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .record-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .record-item:last-child {
+            border-bottom: none;
+        }
+        
+        .record-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .record-values {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .record-value {
+            text-align: center;
+        }
+        
+        .record-value-number {
+            font-weight: 600;
+        }
+        
+        .record-value-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+        }
+        
+        .clinic-list {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .clinic-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .clinic-item:last-child {
+            border-bottom: none;
+        }
+        
+        .clinic-name {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        
+        .clinic-address {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .clinic-distance {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .clinic-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .clinic-actions .btn {
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+        }
+        
+        .map-container {
+            height: 200px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            position: relative;
+        }
+        
+        .location-search {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            z-index: 10;
+            display: flex;
+        }
+        
+        .location-search input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px 0 0 5px;
+            font-size: 0.9rem;
+        }
+        
+        .location-search button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .menstrual-tracker {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .cycle-display {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .cycle-day {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--women-health);
+        }
+        
+        .cycle-phase {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 1rem;
+        }
+        
+        .calendar-header {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.3rem 0;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border-radius: 50%;
+        }
+        
+        .day-current {
+            background: var(--women-health);
+            color: white;
+        }
+        
+        .day-period {
+            background: rgba(173, 20, 87, 0.2);
+        }
+        
+        .day-fertile {
+            background: rgba(33, 150, 243, 0.2);
+        }
+        
+        .day-ovulation {
+            background: rgba(233, 30, 99, 0.3);
+        }
+        
+        .notification-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .notification-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        
+        .notification-message {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .notification-time {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-align: right;
+        }
+        
+        .symptom-checker {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .symptom-item {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .symptom-item:last-child {
+            border-bottom: none;
+        }
+        
+        .symptom-checkbox {
+            margin-right: 10px;
+        }
+        
+        .symptom-name {
+            flex-grow: 1;
+        }
+        
+        .symptom-severity {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .analysis-result {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .result-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-description {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .precaution-list {
+            list-style-type: none;
+        }
+        
+        .precaution-item {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .precaution-item i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .diet-plans {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .diet-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .diet-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .diet-condition {
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .diet-recommendation {
+            font-size: 0.9rem;
+        }
+        
+        .food-item {
+            display: flex;
+            align-items: center;
+            margin-top: 0.3rem;
+        }
+        
+        .food-item i {
+            margin-right: 8px;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        .community-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .community-event {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .community-event:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .event-title {
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .event-details {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .about-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .about-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .about-section p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .contact-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info i {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .contact-info span {
+            font-size: 0.9rem;
+        }
+        
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .team-member:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .member-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--gray);
+        }
+        
+        .member-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .member-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .mission-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .mission-text {
+            flex-grow: 1;
+        }
+        
+        .mission-text h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .mission-text p {
+            font-size: 0.9rem;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-item {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            padding: 0.5rem 0;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .footer-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.7rem;
+        }
+        
+        .footer-btn i {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+        
+        .footer-btn.active {
+            color: var(--primary);
+        }
+        
+        /* Login/Signup Modal */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .auth-container {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .auth-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .auth-form label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .auth-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .auth-switch {
+            color: var(--secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+            }
+            
+            .auth-container {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login/Signup Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-container">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
+            </div>
+            
+            <div class="auth-form active" id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email or Phone</label>
+                    <input type="text" id="login-email" placeholder="Enter your email or phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                
+                <div class="auth-actions">
+                    <button class="btn" id="login-btn">Login</button>
+                    <button class="auth-switch" data-switch="signup">Create an account</button>
+                </div>
+            </div>
+            
+            <div class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                </div>
+                
+                <div class="auth-actions">
+                    <button class="btn" id="signup-btn">Sign Up</button>
+                    <button class="auth-switch" data-switch="login">Already have an account?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="main-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i> 
+                <div>
+                    <div>Community HealthCare</div>
+                    <div class="logo-subtitle">Enhancing Quality of Life</div>
+                </div>
+            </div>
+            <div class="user-profile" id="user-profile">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+        
+        <nav>
+            <div class="nav-item active" data-tab="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-tab="records">
+                <i class="fas fa-notes-medical"></i>
+                <span>Records</span>
+            </div>
+            <div class="nav-item" data-tab="clinics">
+                <i class="fas fa-hospital"></i>
+                <span>Clinics</span>
+            </div>
+            <div class="nav-item" data-tab="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </div>
+            <div class="nav-item notification-bell" data-tab="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Alerts</span>
+            </div>
+        </nav>
+        
+        <main>
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard">
+                <div class="health-status">
+                    <div class="status-header">
+                        <div class="status-title">Your Health Status</div>
+                        <div class="status-indicator">
+                            <div class="status-dot status-good"></div>
+                            <span>Good</span>
+                        </div>
+                    </div>
+                    <div class="health-metrics">
+                        <div class="metric">
+                            <div class="metric-value">72</div>
+                            <div class="metric-label">BPM</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">120/80</div>
+                            <div class="metric-label">BP</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">98</div>
+                            <div class="metric-label">SpO2</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">
+                    <span>Today's Health Tip</span>
+                    <a href="#" id="refresh-tip"><i class="fas fa-sync-alt"></i> Refresh</a>
+                </h2>
+                
+                <div class="health-tip">
+                    <div class="tip-header">
+                        <div class="tip-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="tip-title">Stay Hydrated</div>
+                    </div>
+                    <div class="tip-content">
+                        Drinking enough water helps maintain the balance of body fluids, regulates temperature, and keeps your skin healthy. Aim for 8-10 glasses daily.
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <a href="#" class="action-btn primary" id="symptom-checker-btn">
+                        <i class="fas fa-stethoscope"></i>
+                        <span class="action-label">Symptom Checker</span>
+                    </a>
+                    <a href="#" class="action-btn danger" id="emergency-btn">
+                        <i class="fas fa-ambulance"></i>
+                        <span class="action-label">Emergency</span>
+                    </a>
+                    <a href="#" class="action-btn secondary" id="add-record-btn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span class="action-label">Add Record</span>
+                    </a>
+                    <a href="#" class="action-btn women-health" id="diet-plans-btn">
+                        <i class="fas fa-utensils"></i>
+                        <span class="action-label">Diet Plans</span>
+                    </a>
+                </div>
+                
+                <h2 class="section-title">Emergency Contacts</h2>
+                
+                <div class="emergency-contacts">
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="contact-name">Ambulance (108)</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-name">Emergency (112)</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <div class="contact-name">Poison Control</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="contact-name">Health Helpline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Records Tab -->
+            <div class="tab-content" id="records">
+                <h2 class="section-title">
+                    <span>Health Records</span>
+                    <a href="#" id="add-new-record"><i class="fas fa-plus"></i> Add New</a>
+                </h2>
+                
+                <div class="record-form" id="record-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="record-type">Record Type</label>
+                        <select id="record-type">
+                            <option value="bp">Blood Pressure</option>
+                            <option value="sugar">Blood Sugar</option>
+                            <option value="weight">Weight</option>
+                            <option value="temperature">Temperature</option>
+                            <option value="oxygen">Oxygen Level</option>
+                            <option value="heart-rate">Heart Rate</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="record-value">Value</label>
+                        <input type="text" id="record-value" placeholder="e.g. 120/80 or 98">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="record-date">Date</label>
+                        <input type="date" id="record-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="record-notes">Notes (Optional)</label>
+                        <textarea id="record-notes" placeholder="Any additional information"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-block" id="save-record">
+                        <i class="fas fa-save"></i> Save Record
+                    </button>
+                </div>
+                
+                <div class="records-list">
+                    <div class="record-item">
+                        <div class="record-date">Today, 10:30 AM</div>
+                        <div class="record-values">
+                            <div class="record-value">
+                                <div class="record-value-number">120/80</div>
+                                <div class="record-value-label">BP</div>
+                            </div>
+                            <div class="record-value">
+                                <div class="record-value-number">98</div>
+                                <div class="record-value-label">SpO2</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="record-item">
+                        <div class="record-date">Yesterday, 8:15 AM</div>
+                        <div class="record-values">
+                            <div class="record-value">
+                                <div class="record-value-number">92</div>
+                                <div class="record-value-label">Sugar</div>
+                            </div>
+                            <div class="record-value">
+                                <div class="record-value-number">68</div>
+                                <div class="record-value-label">Weight</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="record-item">
+                        <div class="record-date">May 15, 2023</div>
+                        <div class="record-values">
+                            <div class="record-value">
+                                <div class="record-value-number">118/78</div>
+                                <div class="record-value-label">BP</div>
+                            </div>
+                            <div class="record-value">
+                                <div class="record-value-number">96</div>
+                                <div class="record-value-label">SpO2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clinics Tab -->
+            <div class="tab-content" id="clinics">
+                <h2 class="section-title">Nearby Healthcare</h2>
+                
+                <div class="map-container">
+                    <div class="location-search">
+                        <input type="text" id="location-input" placeholder="Enter your location (city/village)">
+                        <button id="search-location"><i class="fas fa-search"></i></button>
+                    </div>
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                    <span>Map View</span>
+                </div>
+                
+                <div class="clinic-list" id="clinic-results">
+                    <div class="clinic-item">
+                        <div class="clinic-name">Search for clinics in your area</div>
+                        <div class="clinic-address">Enter your location above to find nearby healthcare facilities</div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Emergency Contacts</h2>
+                
+                <div class="emergency-contacts">
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="contact-name">Ambulance (108)</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-name">Emergency (112)</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <div class="contact-name">Poison Control</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="contact-name">Health Helpline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community Tab -->
+            <div class="tab-content" id="community">
+                <h2 class="section-title">Community Health</h2>
+                
+                <div class="community-section">
+                    <div class="community-event">
+                        <div class="event-title">Free Health Checkup Camp</div>
+                        <div class="event-details">Free blood pressure, sugar, and general health checkup for all community members</div>
+                        <div class="event-date">June 25, 2023 | 9AM-4PM | Community Center</div>
+                        <button class="btn btn-block" style="margin-top: 0.5rem;">
+                            <i class="fas fa-calendar-plus"></i> Remind Me
+                        </button>
+                    </div>
+                    
+                    <div class="community-event">
+                        <div class="event-title">Vaccination Drive</div>
+                        <div class="event-details">Free vaccination for children and adults (COVID, Flu, and routine immunizations)</div>
+                        <div class="event-date">July 2, 2023 | 10AM-3PM | Primary Health Center</div>
+                        <button class="btn btn-block" style="margin-top: 0.5rem;">
+                            <i class="fas fa-calendar-plus"></i> Remind Me
+                        </button>
+                    </div>
+                    
+                    <div class="community-event">
+                        <div class="event-title">Nutrition Workshop</div>
+                        <div class="event-details">Learn about balanced diets and healthy eating habits for your family</div>
+                        <div class="event-date">July 10, 2023 | 11AM-1PM | Anganwadi Center</div>
+                        <button class="btn btn-block" style="margin-top: 0.5rem;">
+                            <i class="fas fa-calendar-plus"></i> Remind Me
+                        </button>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Women's Health</h2>
+                
+                <div class="menstrual-tracker">
+                    <div class="cycle-display">
+                        <div class="cycle-day">Day 12</div>
+                        <div class="cycle-phase">Fertile Window</div>
+                    </div>
+                    
+                    <div class="calendar">
+                        <div class="calendar-header">S</div>
+                        <div class="calendar-header">M</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">W</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">F</div>
+                        <div class="calendar-header">S</div>
+                        
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day day-period">1</div>
+                        <div class="calendar-day day-period">2</div>
+                        <div class="calendar-day day-period">3</div>
+                        <div class="calendar-day day-period">4</div>
+                        
+                        <div class="calendar-day day-period">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day day-fertile">8</div>
+                        <div class="calendar-day day-fertile">9</div>
+                        <div class="calendar-day day-fertile">10</div>
+                        <div class="calendar-day day-fertile">11</div>
+                        
+                        <div class="calendar-day day-fertile day-current">12</div>
+                        <div class="calendar-day day-fertile">13</div>
+                        <div class="calendar-day day-ovulation">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+                        
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                    </div>
+                    
+                    <button class="btn btn-block btn-women-health" style="margin-top: 1rem;">
+                        <i class="fas fa-edit"></i> Log Period
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Notifications Tab -->
+            <div class="tab-content" id="notifications">
+                <h2 class="section-title">Health Alerts</h2>
+                
+                <div class="notification-item">
+                    <div class="notification-title">Free Health Camp Tomorrow</div>
+                    <div class="notification-message">Free diabetes screening camp at Community Center on June 25th from 9AM-4PM</div>
+                    <div class="notification-time">Today, 9:30 AM</div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-title">Medication Reminder</div>
+                    <div class="notification-message">Time to take your blood pressure medication</div>
+                    <div class="notification-time">Yesterday, 8:00 PM</div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-title">Vaccination Due</div>
+                    <div class="notification-message">Your child's next vaccination is due in 3 days</div>
+                    <div class="notification-time">June 18, 3:45 PM</div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-title">Health Tip</div>
+                    <div class="notification-message">Remember to drink at least 8 glasses of water today</div>
+                    <div class="notification-time">June 17, 9:00 AM</div>
+                </div>
+            </div>
+            
+            <!-- Symptom Checker (Hidden by default) -->
+            <div class="tab-content" id="symptom-checker">
+                <h2 class="section-title">Symptom Checker</h2>
+                
+                <div class="symptom-checker">
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="headache">
+                        <label for="headache" class="symptom-name">Headache</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option selected>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="fever">
+                        <label for="fever" class="symptom-name">Fever</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option selected>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="fatigue">
+                        <label for="fatigue" class="symptom-name">Fatigue</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option selected>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="nausea">
+                        <label for="nausea" class="symptom-name">Nausea</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option selected>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="dizziness">
+                        <label for="dizziness" class="symptom-name">Dizziness</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option selected>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <input type="checkbox" class="symptom-checkbox" id="cough">
+                        <label for="cough" class="symptom-name">Cough</label>
+                        <select class="symptom-severity">
+                            <option>Mild</option>
+                            <option>Moderate</option>
+                            <option>Severe</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-block" id="analyze-symptoms" style="margin-top: 1rem;">
+                        <i class="fas fa-search"></i> Analyze Symptoms
+                    </button>
+                </div>
+                
+                <div class="analysis-result" id="analysis-result" style="display: none;">
+                    <div class="result-title">Possible Condition: Viral Infection</div>
+                    <div class="result-description">
+                        Based on your symptoms, you may be experiencing a viral infection. Most viral infections resolve on their own with rest and hydration.
+                    </div>
+                    
+                    <div class="result-title">Recommended Precautions:</div>
+                    <ul class="precaution-list">
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Get plenty of rest</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Stay hydrated by drinking fluids</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Take over-the-counter pain relievers if needed</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Monitor your temperature regularly</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Consult a doctor if symptoms worsen or persist beyond 3 days</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-secondary btn-block" style="margin-top: 1rem;">
+                        <i class="fas fa-hospital"></i> Find Nearby Clinics
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Diet Plans (Hidden by default) -->
+            <div class="tab-content" id="diet-plans">
+                <h2 class="section-title">Health Diet Recommendations</h2>
+                
+                <div class="diet-plans">
+                    <div class="diet-item">
+                        <div class="diet-condition">Diabetes</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Whole grains (brown rice, whole wheat)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Leafy green vegetables</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lean proteins (fish, chicken, legumes)</span>
+                        </div>
+                        <div class="diet-recommendation" style="margin-top: 0.5rem;">Foods to avoid:</div>
+                        <div class="food-item">
+                            <i class="fas fa-times-circle" style="color: var(--danger);"></i>
+                            <span>Sugary foods and drinks</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-times-circle" style="color: var(--danger);"></i>
+                            <span>Processed carbohydrates</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">High Blood Pressure</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fresh fruits and vegetables</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Low-fat dairy products</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Foods rich in potassium (bananas, sweet potatoes)</span>
+                        </div>
+                        <div class="diet-recommendation" style="margin-top: 0.5rem;">Foods to avoid:</div>
+                        <div class="food-item">
+                            <i class="fas fa-times-circle" style="color: var(--danger);"></i>
+                            <span>High-sodium foods</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-times-circle" style="color: var(--danger);"></i>
+                            <span>Processed and packaged foods</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Anemia</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Iron-rich foods (spinach, lentils, red meat)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vitamin C-rich foods (citrus fruits) to enhance iron absorption</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fortified cereals and grains</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Vitamin A Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sweet potatoes</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Carrots</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dark leafy greens (spinach, kale)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Red bell peppers</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mangoes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Vitamin B Complex Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Whole grains (brown rice, oats)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Eggs</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Legumes (beans, lentils)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nuts and seeds</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dairy products</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Vitamin C Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Citrus fruits (oranges, lemons)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Strawberries</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kiwi</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bell peppers</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Broccoli</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Vitamin D Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fatty fish (salmon, mackerel)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Egg yolks</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fortified dairy products</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mushrooms</span>
+                        </div>
+                        <div class="diet-recommendation" style="margin-top: 0.5rem;">Additional recommendations:</div>
+                        <div class="food-item">
+                            <i class="fas fa-sun" style="color: var(--warning);"></i>
+                            <span>Get 15-30 minutes of sunlight daily</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Vitamin E Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nuts (almonds, hazelnuts)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Seeds (sunflower seeds)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Spinach</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Avocados</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vegetable oils (sunflower, safflower)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-item">
+                        <div class="diet-condition">Calcium Deficiency</div>
+                        <div class="diet-recommendation">Foods to include:</div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dairy products (milk, yogurt, cheese)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Leafy greens (kale, bok choy)</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fortified plant milks</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tofu</span>
+                        </div>
+                        <div class="food-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Almonds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- About Us Tab -->
+            <div class="tab-content" id="about">
+                <h2 class="section-title">About Community HealthCare</h2>
+                
+                <div class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>Community HealthCare is a mobile platform designed to provide accessible healthcare information and services to rural and underserved communities. Our goal is to bridge the gap between healthcare providers and those in need through technology.</p>
+                    
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="mission-text">
+                            <h3>Mobile-First Healthcare</h3>
+                            <p>We deliver essential health information directly to your mobile device, even with limited internet connectivity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="mission-text">
+                            <h3>Local Language Support</h3>
+                            <p>Our platform is available in multiple regional languages to ensure everyone can access healthcare information.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-item">
+                        <div class="mission-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="mission-text">
+                            <h3>Preventive Healthcare</h3>
+                            <p>We focus on prevention through education, helping communities recognize early warning signs of common health issues.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Key Features</h2>
+                    <ul class="precaution-list">
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Health record tracking for individuals and families</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Local healthcare facility finder</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Women's health and menstrual cycle tracking</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nutrition and diet recommendations</span>
+                        </li>
+                        <li class="precaution-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Emergency contact information</span>
+                        </li>
+                    </ul>
+                    
+                    <h2>Contact Us</h2>
+                    <p>Have questions or feedback? We'd love to hear from you.</p>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@communityhealthcare.org</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9876543210 (9AM-6PM)</span>
+                    </div>
+                    
+                    <button class="btn btn-block" id="send-feedback-btn" style="margin-top: 1rem;">
+                        <i class="fas fa-comment"></i> Send Feedback
+                    </button>
+                </div>
+            </div>
+            <!-- Feedback Modal -->
+            <div id="feedback-modal" class="auth-modal" style="display:none; z-index:2000;">
+                <div class="auth-container" style="max-width:350px;">
+                    <button class="close-modal" id="close-feedback-modal">&times;</button>
+                    <h2 style="margin-bottom:1rem;">Send Feedback</h2>
+                    <form id="feedback-form">
+                        <div class="form-group">
+                            <label for="feedback-name">Name</label>
+                            <input type="text" id="feedback-name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-contact">Email or Phone</label>
+                            <input type="text" id="feedback-contact" required placeholder="Enter your email or phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-message">Message</label>
+                            <textarea id="feedback-message" required placeholder="Enter your feedback" style="width:100%;padding:0.7rem;border:1px solid #eee;border-radius:5px;min-height:80px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block" style="margin-top:1rem;">Submit</button>
+                    </form>
+                    <div id="feedback-thankyou" style="display:none;text-align:center;margin-top:1rem;font-size:1.1rem;color:var(--primary);">
+                        Thank you for your feedback!
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <a href="#" class="footer-btn active" data-tab="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="footer-btn" data-tab="records">
+                <i class="fas fa-notes-medical"></i>
+                <span>Records</span>
+            </a>
+            <a href="#" class="footer-btn" data-tab="clinics">
+                <i class="fas fa-hospital"></i>
+                <span>Clinics</span>
+            </a>
+            <a href="#" class="footer-btn" data-tab="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="#" class="footer-btn" data-tab="about">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        // Current user (null when not logged in)
+        let currentUser = null;
+        
+        // Health tips
+        const healthTips = [
+            {
+                title: "Stay Hydrated",
+                content: "Drinking enough water helps maintain the balance of body fluids, regulates temperature, and keeps your skin healthy. Aim for 8-10 glasses daily."
+            },
+            {
+                title: "Eat Balanced Meals",
+                content: "Include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats in your diet for optimal nutrition."
+            },
+            {
+                title: "Get Enough Sleep",
+                content: "Adults should aim for 7-9 hours of quality sleep each night to allow the body to repair and rejuvenate."
+            },
+            {
+                title: "Wash Hands Regularly",
+                content: "Frequent hand washing with soap and water is one of the best ways to prevent the spread of infections."
+            },
+            {
+                title: "Manage Stress",
+                content: "Practice relaxation techniques like deep breathing, meditation, or yoga to reduce stress levels and improve mental health."
+            },
+            {
+                title: "Exercise Regularly",
+                content: "Aim for at least 30 minutes of moderate physical activity most days of the week to maintain good health."
+            },
+            {
+                title: "Limit Screen Time",
+                content: "Reduce screen time to protect your eyes and improve sleep quality."
+            },
+            {
+                title: "Dental Care",
+                content: "Brush your teeth twice a day and floss regularly to prevent dental problems."
+            },
+            {
+                title: "Sun Protection",
+                content: "Use sunscreen and wear a hat when outdoors to protect your skin from UV rays."
+            },
+            {
+                title: "Stay Social",
+                content: "Maintain social connections for emotional well-being."
+            }
+        ];
+        
+        // Emergency contacts by location (simplified for demo)
+        const emergencyContacts = {
+            "default": [
+                { name: "Ambulance (108)", type: "ambulance" },
+                { name: "Emergency (112)", type: "emergency" },
+                { name: "Poison Control", type: "poison" },
+                { name: "Health Helpline", type: "health" }
+            ],
+            "hyderabad": [
+                { name: "Apollo Hospitals", type: "hospital", phone: "040-12345678" },
+                { name: "Yashoda Hospitals", type: "hospital", phone: "040-87654321" },
+                { name: "Government General Hospital", type: "hospital", phone: "040-23456789" },
+                { name: "Emergency Pharmacy", type: "pharmacy", phone: "040-34567890" }
+            ],
+            "delhi": [
+                { name: "AIIMS Emergency", type: "hospital", phone: "011-12345678" },
+                { name: "Max Hospital", type: "hospital", phone: "011-87654321" },
+                { name: "Safdarjung Hospital", type: "hospital", phone: "011-23456789" },
+                { name: "24/7 Pharmacy", type: "pharmacy", phone: "011-34567890" }
+            ],
+            "village": [
+                { name: "Primary Health Center", type: "hospital", phone: "9876543210" },
+                { name: "Local Doctor", type: "doctor", phone: "9876543211" },
+                { name: "Nearest Pharmacy", type: "pharmacy", phone: "9876543212" },
+                { name: "Community Health Worker", type: "health-worker", phone: "9876543213" }
+            ]
+        };
+        
+        // Function to show login modal
+        function showLoginModal() {
+            document.getElementById('auth-modal').style.display = 'flex';
+            document.getElementById('login-form').classList.add('active');
+            document.getElementById('signup-form').classList.remove('active');
+            document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
+            document.querySelector('.auth-tab[data-tab="signup"]').classList.remove('active');
+        }
+        
+        // Function to hide login modal
+        function hideLoginModal() {
+            document.getElementById('auth-modal').style.display = 'none';
+        }
+        
+        // Function to validate email format
+        function isValidEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+        
+        // Function to validate phone number format (optional for login)
+        function isValidPhone(phone) {
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            return phoneRegex.test(phone);
+        }
+        
+        // Function to check if input is email or phone
+        function isEmailOrPhone(input) {
+            return isValidEmail(input) || isValidPhone(input);
+        }
+        
+        // Function to handle user login
+        function loginUser(email, password) {
+            // Validate email/phone format
+            if (!email || !password) {
+                alert('Please enter both email/phone and password');
+                return;
+            }
+            
+            // Check if input is valid email or phone
+            if (!isEmailOrPhone(email)) {
+                alert('Please enter a valid email address or phone number');
+                return;
+            }
+            
+            // In a real app, this would validate against a backend
+            currentUser = {
+                name: email.includes('@') ? email.split('@')[0] : email,
+                email: email.includes('@') ? email : '',
+                phone: email.includes('@') ? '9876543210' : email
+            };
+            
+            // Update UI
+            document.getElementById('main-container').style.display = 'block';
+            hideLoginModal();
+            
+            // Show welcome message
+            alert(`Welcome back, ${currentUser.name}!`);
+        }
+        
+        // Function to handle user signup
+        function signupUser(name, email, phone, password, confirmPassword) {
+            // Validate all fields are filled
+            if (!name || !email || !phone || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Validate email format
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Validate phone format
+            if (!isValidPhone(phone)) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            
+            // Validate password match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Validate password strength (optional)
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            currentUser = {
+                name: name,
+                email: email,
+                phone: phone
+            };
+            
+            // Update UI
+            document.getElementById('main-container').style.display = 'block';
+            hideLoginModal();
+            
+            // Show welcome message
+            alert(`Welcome to Community HealthCare, ${name}!`);
+        }
+        
+        // Tab Navigation
+        document.querySelectorAll('.nav-item, .footer-btn').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the tab to show
+                const tabId = this.getAttribute('data-tab');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Show the selected tab content
+                document.getElementById(tabId).classList.add('active');
+                
+                // Update active nav item
+                document.querySelectorAll('.nav-item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.footer-btn').forEach(footerBtn => {
+                    footerBtn.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                // If this is a footer button, also activate the corresponding nav item
+                if (this.classList.contains('footer-btn')) {
+                    document.querySelector(`.nav-item[data-tab="${tabId}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.footer-btn[data-tab="${tabId}"]`).classList.add('active');
+                }
+            });
+        });
+        
+        // Quick Actions
+        document.getElementById('symptom-checker-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show symptom checker
+            document.getElementById('symptom-checker').classList.add('active');
+            
+            // Update active nav items
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.footer-btn').forEach(footerBtn => {
+                footerBtn.classList.remove('active');
+            });
+        });
+        
+        document.getElementById('diet-plans-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show diet plans
+            document.getElementById('diet-plans').classList.add('active');
+            
+            // Update active nav items
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.footer-btn').forEach(footerBtn => {
+                footerBtn.classList.remove('active');
+            });
+        });
+        
+        document.getElementById('add-record-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show records tab
+            document.getElementById('records').classList.add('active');
+            
+            // Show record form
+            document.getElementById('record-form').style.display = 'block';
+            
+            // Update active nav items
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.footer-btn').forEach(footerBtn => {
+                footerBtn.classList.remove('active');
+            });
+            
+            document.querySelector('.nav-item[data-tab="records"]').classList.add('active');
+            document.querySelector('.footer-btn[data-tab="records"]').classList.add('active');
+        });
+        
+        document.getElementById('add-new-record').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('record-form').style.display = 'block';
+        });
+        
+        // Analyze Symptoms
+        document.getElementById('analyze-symptoms').addEventListener('click', function() {
+            // Get selected symptoms
+            const symptoms = [];
+            document.querySelectorAll('.symptom-checkbox:checked').forEach(checkbox => {
+                symptoms.push({
+                    name: checkbox.nextElementSibling.textContent,
+                    severity: checkbox.parentNode.querySelector('.symptom-severity').value
+                });
+            });
+            
+            if (symptoms.length === 0) {
+                alert('Please select at least one symptom');
+                return;
+            }
+            
+            // Simple symptom analysis (in a real app, this would be more sophisticated)
+            let condition = "No specific condition identified";
+            let description = "Your symptoms don't match any specific condition we can identify. Please monitor your symptoms and consult a healthcare provider if they persist or worsen.";
+            let precautions = [
+                "Monitor your symptoms",
+                "Get plenty of rest",
+                "Stay hydrated",
+                "Consult a doctor if symptoms worsen"
+            ];
+            
+            // Check for common conditions based on symptoms
+            const hasFever = symptoms.some(s => s.name === "Fever");
+            const hasCough = symptoms.some(s => s.name === "Cough");
+            const hasHeadache = symptoms.some(s => s.name === "Headache");
+            const hasFatigue = symptoms.some(s => s.name === "Fatigue");
+            
+            if (hasFever && hasCough) {
+                condition = "Possible Respiratory Infection";
+                description = "Based on your symptoms, you may have a respiratory infection such as a cold or flu. Most viral infections resolve on their own with proper rest and care.";
+                precautions = [
+                    "Get plenty of rest",
+                    "Stay hydrated by drinking fluids",
+                    "Take over-the-counter pain relievers if needed",
+                    "Use a humidifier or steam inhalation for cough",
+                    "Consult a doctor if symptoms worsen or persist beyond 3 days"
+                ];
+            } else if (hasHeadache && hasFatigue) {
+                condition = "Possible Tension Headache or Migraine";
+                description = "Your symptoms may indicate a tension headache or migraine. Stress, lack of sleep, or dehydration can contribute to these conditions.";
+                precautions = [
+                    "Rest in a quiet, dark room",
+                    "Apply a cold compress to your forehead",
+                    "Stay hydrated",
+                    "Practice relaxation techniques",
+                    "Consult a doctor if headaches are severe or frequent"
+                ];
+            }
+            
+            // Display analysis result
+            const resultElement = document.getElementById('analysis-result');
+            resultElement.querySelector('.result-title').textContent = `Possible Condition: ${condition}`;
+            resultElement.querySelector('.result-description').textContent = description;
+            
+            const precautionsList = resultElement.querySelector('.precaution-list');
+            precautionsList.innerHTML = '';
+            
+            precautions.forEach(precaution => {
+                const li = document.createElement('li');
+                li.className = 'precaution-item';
+                li.innerHTML = `<i class="fas fa-check-circle"></i><span>${precaution}</span>`;
+                precautionsList.appendChild(li);
+            });
+            
+            resultElement.style.display = 'block';
+            
+            // Scroll to results
+            resultElement.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Save Record
+        document.getElementById('save-record').addEventListener('click', function() {
+            const type = document.getElementById('record-type').value;
+            const value = document.getElementById('record-value').value;
+            const date = document.getElementById('record-date').value;
+            const notes = document.getElementById('record-notes').value;
+            
+            if (!type || !value || !date) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // In a real app, this would save to a database
+            alert('Record saved successfully!');
+            document.getElementById('record-form').style.display = 'none';
+            
+            // Reset form
+            document.getElementById('record-form').reset();
+        });
+        
+        // Track last shown health tip index
+        let lastHealthTipIndex = null;
+
+        // Function to show a random health tip, avoiding immediate repeats
+        function showRandomHealthTip() {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * healthTips.length);
+            } while (healthTips.length > 1 && randomIndex === lastHealthTipIndex);
+            lastHealthTipIndex = randomIndex;
+            const randomTip = healthTips[randomIndex];
+            document.querySelector('.tip-title').textContent = randomTip.title;
+            document.querySelector('.tip-content').textContent = randomTip.content;
+        }
+
+        // Refresh Health Tip
+        document.getElementById('refresh-tip').addEventListener('click', function(e) {
+            e.preventDefault();
+            showRandomHealthTip();
+        });
+
+        // Initialize with a random health tip
+        showRandomHealthTip();
+        
+        // Location Search for Clinics
+        document.getElementById('search-location').addEventListener('click', function() {
+            const location = document.getElementById('location-input').value.trim().toLowerCase();
+            if (!location) {
+                alert('Please enter a location');
+                return;
+            }
+            
+            // Simulate API call to find clinics
+            const clinicResults = document.getElementById('clinic-results');
+            clinicResults.innerHTML = '<div class="clinic-item"><div class="clinic-name">Searching for clinics...</div></div>';
+            
+            // Simulate network delay
+            setTimeout(() => {
+                let clinics = [];
+                let emergencyContactsList = emergencyContacts.default;
+                
+                // Simple location matching for demo
+                if (location.includes('hyderabad')) {
+                    clinics = [
+                        {
+                            name: "Apollo Hospitals",
+                            address: "Jubilee Hills, Hyderabad",
+                            distance: "5 km away",
+                            phone: "040-12345678"
+                        },
+                        {
+                            name: "Yashoda Hospitals",
+                            address: "Secunderabad, Hyderabad",
+                            distance: "8 km away",
+                            phone: "040-87654321"
+                        },
+                        {
+                            name: "Government General Hospital",
+                            address: "Koti, Hyderabad",
+                            distance: "3 km away",
+                            phone: "040-23456789"
+                        }
+                    ];
+                    emergencyContactsList = emergencyContacts.hyderabad;
+                } 
+                else if (location.includes('delhi')) {
+                    clinics = [
+                        {
+                            name: "AIIMS Hospital",
+                            address: "Ansari Nagar, Delhi",
+                            distance: "4 km away",
+                            phone: "011-12345678"
+                        },
+                        {
+                            name: "Max Hospital",
+                            address: "Saket, Delhi",
+                            distance: "6 km away",
+                            phone: "011-87654321"
+                        },
+                        {
+                            name: "Safdarjung Hospital",
+                            address: "Ansari Nagar, Delhi",
+                            distance: "5 km away",
+                            phone: "011-23456789"
+                        }
+                    ];
+                    emergencyContactsList = emergencyContacts.delhi;
+                }
+                else {
+                    // Default/village results
+                    clinics = [
+                        {
+                            name: "Primary Health Center",
+                            address: "Main Road, " + location.charAt(0).toUpperCase() + location.slice(1),
+                            distance: "1 km away",
+                            phone: "9876543210"
+                        },
+                        {
+                            name: "Community Clinic",
+                            address: "Near Panchayat Office, " + location.charAt(0).toUpperCase() + location.slice(1),
+                            distance: "2 km away",
+                            phone: "9876543211"
+                        },
+                        {
+                            name: "Local Pharmacy",
+                            address: "Market Area, " + location.charAt(0).toUpperCase() + location.slice(1),
+                            distance: "0.5 km away",
+                            phone: "9876543212"
+                        }
+                    ];
+                    emergencyContactsList = emergencyContacts.village;
+                }
+                
+                // Update clinics list
+                clinicResults.innerHTML = '';
+                
+                clinics.forEach(clinic => {
+                    const clinicItem = document.createElement('div');
+                    clinicItem.className = 'clinic-item';
+                    clinicItem.innerHTML = `
+                        <div class="clinic-name">${clinic.name}</div>
+                        <div class="clinic-address">${clinic.address}</div>
+                        <div class="clinic-distance">${clinic.distance}</div>
+                        <div class="clinic-actions">
+                            <button class="btn"><i class="fas fa-phone"></i> Call</button>
+                            <button class="btn btn-secondary"><i class="fas fa-directions"></i> Directions</button>
+                        </div>
+                    `;
+                    clinicResults.appendChild(clinicItem);
+                });
+                
+                // Update emergency contacts
+                const emergencyContactsContainer = document.querySelector('#clinics .emergency-contacts .contact-list');
+                emergencyContactsContainer.innerHTML = '';
+                
+                emergencyContactsList.forEach(contact => {
+                    const contactItem = document.createElement('div');
+                    contactItem.className = 'contact-item';
+                    
+                    let iconClass = 'fa-hospital';
+                    if (contact.type === 'ambulance') iconClass = 'fa-ambulance';
+                    else if (contact.type === 'emergency') iconClass = 'fa-phone';
+                    else if (contact.type === 'poison') iconClass = 'fa-skull-crossbones';
+                    else if (contact.type === 'health') iconClass = 'fa-heartbeat';
+                    else if (contact.type === 'pharmacy') iconClass = 'fa-pills';
+                    else if (contact.type === 'doctor') iconClass = 'fa-user-md';
+                    else if (contact.type === 'health-worker') iconClass = 'fa-user-nurse';
+                    
+                    contactItem.innerHTML = `
+                        <div class="contact-icon">
+                            <i class="fas ${iconClass}"></i>
+                        </div>
+                        <div class="contact-name">${contact.name}${contact.phone ? ` (${contact.phone})` : ''}</div>
+                    `;
+                    emergencyContactsContainer.appendChild(contactItem);
+                });
+                addEmergencyContactClickHandlers();
+            }, 1000);
+        });
+        
+        // Allow pressing Enter in location search
+        document.getElementById('location-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('search-location').click();
+            }
+        });
+        
+        // Auth Modal Tabs
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Update active tab
+                document.querySelectorAll('.auth-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show corresponding form
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+                document.getElementById(`${tabId}-form`).classList.add('active');
+            });
+        });
+        
+        // Auth Switch Links
+        document.querySelectorAll('.auth-switch').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const switchTo = this.getAttribute('data-switch');
+                
+                // Update active tab
+                document.querySelectorAll('.auth-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                document.querySelector(`.auth-tab[data-tab="${switchTo}"]`).classList.add('active');
+                
+                // Show corresponding form
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+                document.getElementById(`${switchTo}-form`).classList.add('active');
+            });
+        });
+        
+        // Login Button
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            loginUser(email, password);
+        });
+        
+        // Signup Button
+        document.getElementById('signup-btn').addEventListener('click', function() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const phone = document.getElementById('signup-phone').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm').value;
+            
+            signupUser(name, email, phone, password, confirmPassword);
+        });
+        
+        // Close Modal Button
+        document.getElementById('close-modal').addEventListener('click', hideLoginModal);
+        
+        // User Profile Click
+        document.getElementById('user-profile').addEventListener('click', function() {
+            if (currentUser) {
+                // Show user profile menu (in a real app)
+                alert(`Logged in as ${currentUser.name}\nEmail: ${currentUser.email}\nPhone: ${currentUser.phone}`);
+            } else {
+                showLoginModal();
+            }
+        });
+        
+        // Remove demo login and show login modal by default
+        window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('main-container').style.display = 'none';
+            document.getElementById('auth-modal').style.display = 'flex';
+            currentUser = null;
+        });
+        
+        // Feedback Modal Functionality
+        const feedbackBtn = document.getElementById('send-feedback-btn');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const closeFeedbackModal = document.getElementById('close-feedback-modal');
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackThankyou = document.getElementById('feedback-thankyou');
+
+        feedbackBtn.addEventListener('click', function() {
+            feedbackModal.style.display = 'flex';
+            feedbackForm.style.display = 'block';
+            feedbackThankyou.style.display = 'none';
+        });
+        closeFeedbackModal.addEventListener('click', function() {
+            feedbackModal.style.display = 'none';
+        });
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            feedbackForm.style.display = 'none';
+            feedbackThankyou.style.display = 'block';
+            setTimeout(() => {
+                feedbackModal.style.display = 'none';
+            }, 1800);
+            feedbackForm.reset();
+        });
+        
+        // Real-time validation for input fields
+        function addRealTimeValidation() {
+            // Login email/phone validation
+            const loginEmailInput = document.getElementById('login-email');
+            loginEmailInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                if (value === '') {
+                    this.style.borderColor = '#ddd';
+                    this.style.backgroundColor = 'white';
+                } else if (isEmailOrPhone(value)) {
+                    this.style.borderColor = '#2E7D32';
+                    this.style.backgroundColor = '#f0f8f0';
+                } else {
+                    this.style.borderColor = '#C62828';
+                    this.style.backgroundColor = '#fff5f5';
+                }
+            });
+            
+            // Signup email validation
+            const signupEmailInput = document.getElementById('signup-email');
+            signupEmailInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                if (value === '') {
+                    this.style.borderColor = '#ddd';
+                    this.style.backgroundColor = 'white';
+                } else if (isValidEmail(value)) {
+                    this.style.borderColor = '#2E7D32';
+                    this.style.backgroundColor = '#f0f8f0';
+                } else {
+                    this.style.borderColor = '#C62828';
+                    this.style.backgroundColor = '#fff5f5';
+                }
+            });
+            
+            // Signup phone validation
+            const signupPhoneInput = document.getElementById('signup-phone');
+            signupPhoneInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                if (value === '') {
+                    this.style.borderColor = '#ddd';
+                    this.style.backgroundColor = 'white';
+                } else if (isValidPhone(value)) {
+                    this.style.borderColor = '#2E7D32';
+                    this.style.backgroundColor = '#f0f8f0';
+                } else {
+                    this.style.borderColor = '#C62828';
+                    this.style.backgroundColor = '#fff5f5';
+                }
+            });
+            
+            // Password strength validation
+            const signupPasswordInput = document.getElementById('signup-password');
+            signupPasswordInput.addEventListener('input', function() {
+                const value = this.value;
+                if (value === '') {
+                    this.style.borderColor = '#ddd';
+                    this.style.backgroundColor = 'white';
+                } else if (value.length >= 6) {
+                    this.style.borderColor = '#2E7D32';
+                    this.style.backgroundColor = '#f0f8f0';
+                } else {
+                    this.style.borderColor = '#F57C00';
+                    this.style.backgroundColor = '#fff8f0';
+                }
+            });
+        }
+        
+        // Initialize real-time validation
+        addRealTimeValidation();
+        
+        // Emergency contact details
+        const emergencyContactDetails = {
+            'Ambulance': {
+                name: 'Ambulance',
+                phone: '108',
+                description: 'Call for immediate medical emergency transportation.'
+            },
+            'Nearest Hospital': {
+                name: 'Nearest Hospital',
+                hospitals: [
+                    { name: 'City General Hospital', phone: '011-23456789' },
+                    { name: 'Sunrise Multispeciality', phone: '011-98765432' },
+                    { name: 'Green Valley Clinic', phone: '011-87654321' }
+                ],
+                description: 'Contact your nearest hospital for urgent care.'
+            },
+            'Family Doctor': {
+                name: 'Family Doctor',
+                phone: '9876543210',
+                description: 'Call your family doctor for medical advice.'
+            },
+            'Pharmacy': {
+                name: 'Pharmacy',
+                phone: '5555555555',
+                description: 'Contact your local pharmacy for medicines.'
+            },
+            'Ambulance (108)': {
+                name: 'Ambulance',
+                phone: '108',
+                description: 'Call for immediate medical emergency transportation.'
+            },
+            'Emergency (112)': {
+                name: 'Emergency',
+                phone: '112',
+                description: 'General emergency helpline.'
+            },
+            'Poison Control': {
+                name: 'Poison Control',
+                phone: '1800116117',
+                description: 'National Poison Information Centre.'
+            },
+            'Health Helpline': {
+                name: 'Health Helpline',
+                phone: '104',
+                description: 'General health helpline.'
+            }
+        };
+        
+        // Add click event to all emergency contact items (Home & Clinics tab)
+        function addEmergencyContactClickHandlers() {
+            document.querySelectorAll('.emergency-contacts .contact-item').forEach(item => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', function() {
+                    const name = this.querySelector('.contact-name').textContent.trim();
+                    const details = emergencyContactDetails[name];
+                    if (details) {
+                        if (name === 'Nearest Hospital' && details.hospitals) {
+                            let msg = `Nearest Hospitals:\n`;
+                            details.hospitals.forEach((h, i) => {
+                                msg += `${i+1}. ${h.name} - ${h.phone}\n`;
+                            });
+                            msg += `\n${details.description}`;
+                            alert(msg);
+                        } else {
+                            alert(`Contact: ${details.name}\nPhone: ${details.phone}\n${details.description}`);
+                        }
+                    } else {
+                        alert('No details available for this contact.');
+                    }
+                });
+            });
+        }
+        
+        // Call this after DOMContentLoaded and after any dynamic update of contacts
+        document.addEventListener('DOMContentLoaded', addEmergencyContactClickHandlers);
+        
+        // Function to determine health status
+        function getHealthStatus(bpm, bp, spo2) {
+            // Parse BP
+            let bpSys = 0, bpDia = 0;
+            if (typeof bp === 'string' && bp.includes('/')) {
+                [bpSys, bpDia] = bp.split('/').map(Number);
+            }
+            // Good: BPM 60-100, BP 90/60–120/80, SpO2 ≥ 95
+            if (
+                bpm >= 60 && bpm <= 100 &&
+                bpSys >= 90 && bpSys <= 120 &&
+                bpDia >= 60 && bpDia <= 80 &&
+                spo2 >= 95
+            ) {
+                return { status: 'Good', class: 'status-good' };
+            }
+            // Poor: BPM <50 or >120, BP <80/50 or >140/90, SpO2 < 90
+            if (
+                bpm < 50 || bpm > 120 ||
+                bpSys < 80 || bpSys > 140 ||
+                bpDia < 50 || bpDia > 90 ||
+                spo2 < 90
+            ) {
+                return { status: 'Poor', class: 'status-poor' };
+            }
+            // Otherwise, Average
+            return { status: 'Average', class: 'status-average' };
+        }
+        
+        // Function to update health status UI
+        function updateHealthStatus() {
+            // Get metric values from DOM
+            const bpm = Number(document.querySelector('.metric-value:nth-child(1)').textContent) || 0;
+            const bp = document.querySelectorAll('.metric-value')[1].textContent;
+            const spo2 = Number(document.querySelectorAll('.metric-value')[2].textContent) || 0;
+            const status = getHealthStatus(bpm, bp, spo2);
+            // Update dot and text
+            const dot = document.querySelector('.status-dot');
+            const text = document.querySelector('.status-indicator span');
+            dot.className = 'status-dot ' + status.class;
+            text.textContent = status.status;
+        }
+        
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', updateHealthStatus);
+    </script>
+</body>
+</html>
